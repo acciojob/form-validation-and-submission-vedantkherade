@@ -1,25 +1,28 @@
 //your JS code here. If required.
-const form = document.getElementById("userForm");
+    const form = document.getElementById("userForm");
     const submitBtn = document.getElementById("submitBtn");
-    const checkbox = document.getElementById("terms");
+    const checkbox = document.querySelector('input[name="terms"]');
 
-    checkbox.addEventListener('change', () => {
+    checkbox.addEventListener("change", () => {
       submitBtn.disabled = !checkbox.checked;
     });
 
+ 
     form.addEventListener('submit', (e) => {
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const password = form.password.value.trim();
+      const gender = form.gender.value;
 
-      if (name === '' || email === '') {
+      if (!name || !email || !password || !gender) {
         e.preventDefault();
-        alert("Please fill in all required fields.");
+        alert("Please complete all fields before submitting.");
         return;
       }
 
       if (!checkbox.checked) {
         e.preventDefault();
-        alert("Please accept the terms and conditions.");
+        alert("You must accept the terms and conditions.");
         return;
       }
 
