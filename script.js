@@ -14,7 +14,6 @@ form.addEventListener("submit", (e) => {
   const password = form.password.value.trim();
   const gender = form.gender.value;
 
-
   if (!name || !email || !password || !gender) {
     e.preventDefault();
     alert("Please complete all fields before submitting.");
@@ -28,4 +27,5 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
+ 
 });
